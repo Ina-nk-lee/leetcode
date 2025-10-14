@@ -12,11 +12,12 @@ Each problem is organized by topic and difficulty level:
 
 ```
 LeetCode/
-├── Easy/
-│   └── 217_contains_duplicate.md
-├── Medium/
+├── array/
+│   └── easy/
+│       └── contains-duplicate.md
+├── two-pointers/
 │   └── ...
-└── Hard/
+└── stack/
     └── ...
 ```
 
@@ -29,12 +30,10 @@ LeetCode/
 ### Neetcode 75 in progress...
 
 - Arrays and Hashing
-- Sets and Hashmaps
 - Two Pointers
-- Sliding Window
+- Stack
 - Binary Search
-- Trees and Graphs
-- Dynamic Programming (work in progress)
+- ...
 
 ---
 
