@@ -44,7 +44,7 @@ class Solution:
 - `reverseList` is a recursive function to reverse the given list, `head`.
 - It goes all the way to the last value, which becomes the new head.
 - `new_head` represents the head of the reversed list.
-- After the recursive call returns, we attach the current node after its next node, which is the last value of the reversed list. (We must not use `new_head` because `new_head` is a reversed linked list itself, not a single node)
+- After the recursive call returns, we attach the current node after its next node, which is the last value of the reversed list. (We must not use `new_head` because `new_head` is a reversed linked list itself, not the next node)
 - And then, we remove `.next` of the current node to avoid cycles.
 - Finally, the function returns `new_head`.
 ---
@@ -54,5 +54,5 @@ class Solution:
 - At first, I could only think of tail recursion and forgot that head recursion was an option.
 - I also tried an iterative approach, but it did not work out immediately, which got me stuck.
 - Looking back at a previous solution helped me recall this pattern.
-- Head recursion is useful when we need to process nodes in reverse order, because the recursive calls reach the end first and work backward.
+- Head recursion is useful when we need to process nodes in reverse order, because the recursive calls reach the end first and work backward, and we manipulate it afterwards.
 - Time complexity is O(n), and space complexity is O(n).
