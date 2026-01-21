@@ -33,6 +33,8 @@ LeetCode/
 - Two Pointers
 - Stack
 - Binary Search
+- Sliding Window
+- Linked List
 - ...
 
 ---
