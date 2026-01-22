@@ -19,7 +19,7 @@
 
 ---
 
-### Solution
+### Solution 1
 
 ```python
 # Definition for a binary tree node.
@@ -42,6 +42,8 @@ class Solution1:
 - `invertTree` is a recursive function to invert `root`.
 - If `root` is empty, it returns `null`.
 - If not, it inverts its children by passing them to `invertTree`.
+
+### Solution 2
 
 ```python
 from collections import deque
