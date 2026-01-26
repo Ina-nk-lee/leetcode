@@ -42,7 +42,7 @@ class Solution:
 ### Thoughts
 
 - while **Recursion** is more straightforward and intuitive for **Fibonacci sequence**, we need to make it more efficient by using **memoization**.
-- For the **solution without memoization**, the time complexity is **O(2^n)** to calculate from scratch for every branch.
-- For the **solution with memoization**, the time complexity is **O(n)** by saving the calculated values in the **dictionary**.
-- The space complesity is **O(n)** because we need to use the **dictionary** that is big as `n`.
+- For the **solution without memoization**, the time complexity is **`O(2^n)`** to calculate from scratch for every branch.
+- For the **solution with memoization**, the time complexity is **`O(n)`** by saving the calculated values in the **dictionary**.
+- The space complesity is **`O(n)`** because we need to use the **dictionary** that is big as `n`.
 - **Memoization** is a very efficient solution for where we need to calculate **cumulative values**.
