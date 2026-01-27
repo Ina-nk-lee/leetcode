@@ -35,8 +35,19 @@ LeetCode/
 - Binary Search
 - Sliding Window
 - Linked List
+- Tree
+- Intervals
 - ...
 
+##  Review Problems
+
+- [Group Anagrams](https://neetcode.io/problems/anagram-groups/)
+
+- [Meeting Room Schedule](https://neetcode.io/problems/meeting-schedule)
+
+- [Cycle Detection](https://neetcode.io/problems/linked-list-cycle-detection/)
+
+- [Reverse Linked List](https://neetcode.io/problems/reverse-a-linked-list/question)
 ---
 
 ## About
