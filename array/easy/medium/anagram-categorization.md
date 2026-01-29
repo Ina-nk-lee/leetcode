@@ -38,6 +38,7 @@ class Solution:
 - `ord(c) - ord('a')` computes the index for each character.
 - `tuple(frq)` is used as a key in the dictionary, since lists cannot be used as dictionary keys.
 - After processing all strings, `d.values()` contains all anagram groups.
+- `List[]` is for type annotation in parameters; `list` is the actual list type used at runtime.
 ---
 
 ### Thoughts

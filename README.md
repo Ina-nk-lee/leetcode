@@ -41,7 +41,7 @@ LeetCode/
 
 ##  Review Problems
 
-- [Group Anagrams](https://neetcode.io/problems/anagram-groups/)
+- [Group Anagrams](https://neetcode.io/problems/anagram-groups/) [Reviewed on Jan 28, 2026]
 
 - [Meeting Room Schedule](https://neetcode.io/problems/meeting-schedule)
 
