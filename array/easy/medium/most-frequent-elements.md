@@ -13,8 +13,8 @@
 
 ### Ideas
 
-- We could sort all the words alphabetically and group them using hashmap, but the time complexity of it is `O(mlogn)`, where `m` is the number of strings in `strs` and `n` is the length of the longest string in `strs`.
-- Instead, we could use **frequency counting** to minimize the time complexity to **O(m * n)**.
+- We need to visit all the elements in `nums` to track frequencies.
+- Hashmap can minimize the time complexity.
 
 ---
 
@@ -22,23 +22,23 @@
 
 ```python  
 class Solution:
-    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
-        d = defaultdict(list)
-        for s in strs:
-            frq = [0] * 26
-            for c in s:
-                frq[ord(c) - ord('a')] += 1
-            d[tuple(frq)].append(s)
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        d = defaultdict(int)
+        for num in nums:
+            d[num] += 1
         
-        return list(d.values())
+        arr = sorted(d.items(), key = lambda item : item[1], reverse = True)
+        result = []
+        i = 0
+        while i < k:
+            result.append(arr[i][0])
+            i += 1
+        return result
 
 ```
-- `d` is a dictionary with `list` objects as values. `defaultdict(list)` automatically initialzes the value as an empty `list` if the key is not found.
-- For each string in `strs`, it creates a frequency counting array, `frq` of size 26, where each index represents the count of each lowercase letter `a` to `z`.
-- `ord(c) - ord('a')` computes the index for each character.
-- `tuple(frq)` is used as a key in the dictionary, since lists cannot be used as dictionary keys.
-- After processing all strings, `d.values()` contains all anagram groups.
-- `List[]` is for type annotation in parameters; `list` is the actual list type used at runtime.
+- `d` is a dictionary with `num` as key and frequency as a value.
+- `arr` is an array with `(key, frequency)` tuples, sorted by `frequency` in a descending order.
+- The while loop adds up to `k`th frequently appeared numbers to `result`.
 ---
 
 ### Thoughts
