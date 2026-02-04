@@ -43,6 +43,6 @@ class Solution:
 
 ### Thoughts
 
-- The time complexity is **`O(m * n)`** where `m` is the number of strings in `strs` and `n` is the maximum length of a string.
-- The space complexity is **`O(m * n)`** as well since each string and its character frequencies are stored in memory.
-- The use of **`defaultdict()`**, **`ord()`**, **`tuple()`**, **`list()`** makes the implementation concise and efficient.
+- The time complexity is **`O(n log n)`**, not `O(n)`, because of the sorting step.
+- The space complexity is **`O(n)`**, which accounts for the dictionary and sorted array.
+- The use of **`defaultdict()`**, **`sorted()`** with a **lambda function**, and **tuple unpacking** is helpful for clean implementation.
