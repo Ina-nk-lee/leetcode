@@ -7,7 +7,7 @@
 
 ### Summary
 
-- Given an array of integers nums and an integer `k`, return the `k` most frequent elements.
+- Given an array of integers `nums` and an integer `k`, return the `k` most frequent elements.
 
 ---
 
