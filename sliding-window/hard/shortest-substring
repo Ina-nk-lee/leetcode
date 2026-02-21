@@ -5,13 +5,13 @@
 ---
 
 ### Summary
-- Given two strings `s` and `t`, return the shortest substing from `s` that contains all the characters in `t` including duplicates.
+- Given two strings `s` and `t`, return the shortest substring from `s` that contains all the characters in `t` including duplicates.
 ---
 
 ### Ideas
 - It's unavoidable to check all the characters in `s`.
 - Need to find a shortest interval that meets the requirement while going from left to right.
-- The right pointer of the window moves first and the left one follows to minimize the window size.
+- The right pointer of the window moves first to meet the condition and the left one follows to minimize the window size.
 
 ---
 
@@ -29,37 +29,37 @@ class Solution:
         have = 0
         mn_l = 0
         mn_r = 0
-        mn = 0
+        mn = len(s)
         while r < len(s):
-            if have < len(count):
-                if s[r] in count:
-                    count[s[r]] -= 1
-                if count s[r] == 0:
+            if s[r] in count:
+                count[s[r]] -= 1
+                if count[s[r]] == 0:
                     have += 1
-                r += 1
-            else:
+            if have == len(count):
                 while s[l] not in count or count[s[l]] < 0:
                     if s[l] in count:
                         count[s[l]] += 1
-                        if count[s[l]] > 0:
-                            have -= 1
-                    l -= 1
-            if r - l + 1 < mn:
-                mn_l = l
-                mn_r = r
+                    l += 1
+                if r - l + 1 <= mn:
+                    mn_l = l
+                    mn_r = r
+                    mn = r - l + 1
             r += 1
-        return s[mn_l:mn_r + 1]
-                
-
-
+        if not all(v <= 0 for v in count.values()):
+            return ""
+        else: 
+            return s[mn_l:mn_r + 1]
 ```
-- For each fixed `c` in `seen`, it checks `s`.
- - If `s[r] == c`, it increments `count`, which counts how many `c` are inside the window.
- - While the window size(`r - l + 1`) is bigger than `k + count`, it increases `l` and shrinks the window from the left.
- - `mx` contains the biggest window size.
+- `count` contains the characters that `s` should have in its window.
+- `r` goes to the right first to fulfill the condition to have the characters in `count`.
+- It increments `have` every time the window has all the counts of a character.
+- Once it has all the characters, `l` goes to the right to minimize the window size by removing extra characters.
+- If the window size is smaller than `mn` after the minimization, it updates `mn`, `mn_l`, `mn_r`.
+- After the loop, if the values in `count` is not positive values, it returns `""`.
+- If not, it returns the smallest window size.
+
 
 ### Thoughts
-- The time complexity of the solution is **`O(n * m)`** where `n` is the length of `s` and `m` is the number of unique characters in `s`. However, `m` is `26` at most.
-- Additionally, each index enters and leaves the window at most once, so both pointers move at most `n` times for a fixed `c`.
-- The space complexity is **`O(m)`** where `m` is the number of unique characters in `s`.
-- Sliding window solution is useful for problems that require a consecutive interval under a given condition.
+- The time complexity of the solution is **`O(n + m)`** where `n` is the length of `s` and `m` is that of `t` because `l` and `r` check the elements of `s` once at most, and the characters of `t` are added to `count`.
+- The space complexity is **`O(unique(m))`** because of `count`.
+- By using `have` rather than going through the entire `count`, it can check the window requirement with a constant time. 
