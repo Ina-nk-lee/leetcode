@@ -21,7 +21,7 @@
 
 ---
 
-### Solution 1
+### Solution 1 (Recursive)
 
 ```python
 # Definition for singly-linked list.
@@ -49,10 +49,39 @@ class Solution:
 - Finally, the function returns `new_head`.
 ---
 
+### Solution 2 (Iterative)
+
+```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+
+class Solution:
+    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        prev = None
+        cur = head
+        while cur:
+            temp = cur.next
+            cur.next = prev
+            prev = cur
+            cur = temp
+        return prev
+```
+
+- It stores a previous node in `prev` to conect it to `cur`.
+- `temp` stores the next value.
+- It moves `prev` and `cur` to the next nodes.
+- It iterates until `cur` reaches `lastnode.next`, therefore, it returns `prev`.
+
+---
+
 ### Thoughts
 
 - At first, I could only think of tail recursion and forgot that head recursion was an option.
 - I also tried an iterative approach, but it did not work out immediately, which got me stuck.
 - Looking back at a previous solution helped me recall this pattern.
 - Head recursion is useful when we need to process nodes in reverse order, because the recursive calls reach the end first and work backward, and we manipulate it afterwards.
-- Time complexity is O(n), and space complexity is O(n).
+- Time complexity of the recursive solution is **`O(n)`** where `n` is the number of nodes in `nums`, and space complexity is **`O(n)`**.
+- Time complexity of the iterative solution is **`O(n)`**, and space complexity is **`O(1)`**.

@@ -47,7 +47,7 @@ LeetCode/
 
 - [Cycle Detection](https://neetcode.io/problems/linked-list-cycle-detection/)
 
-- [Reverse Linked List](https://neetcode.io/problems/reverse-a-linked-list/question)
+- [Reverse Linked List](https://neetcode.io/problems/reverse-a-linked-list/question) [Reviewed on Feb 21, 2026]
 
 - [Sum of 3](https://neetcode.io/problems/three-integer-sum/solution)
 ---
