@@ -6,17 +6,14 @@
 ---
 
 ### Summary
-
-- Given a singly linked list `head`, reorder it.
-- For example, `[0, 1, 2, 3, 4, 5]` should be reordered to `[0, 5, 1, 4, 2 ,3]`.
+- Given a singly linked list `head`, remove the `n`th element from the end and return the head of the list.
 
 ---
 
 ### Ideas
-
-- First, to reorder the list, we need to visit **every node** in it.
-- Reversing the list could help, because the second half of the list is reversed in the reordered list.
-- Basically, the reversed second half is merged into the first half, by alternating nodes.
+- First, locating the `n`th element is necessary.
+- Second, we need to reach the `n`th element while storing its previous node.
+- Third, connect the previous node's `.next` to the target node's `.next`.
 
 ---
 
@@ -30,41 +27,40 @@
 #         self.next = next
 
 class Solution:
-    def reorderList(self, head: Optional[ListNode]) -> None:
-        slow = head
-        fast = head.next
-        while fast and fast.next:
-            slow = slow.next
-            fast = fast.next.next
+    def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
+        l = 0
+        curr = head
+        while curr:
+            curr = curr.next
+            l += 1
+        target = l - n
+        curr = head
         prev = None
-        r = slow.next
-        slow.next = None
-        while r:
-            temp = r.next
-            r.next = prev
-            prev = r
-            r = temp
-        l = head
-        r = prev
-        while r:
-            temp_l = l.next
-            temp_r = r.next
-            l.next = r
-            r.next = temp_l
-            l = temp_l
-            r = temp_r
+        i = 0
+        while i < target:
+            prev = curr
+            curr = curr.next
+            i += 1
+        if prev == None:
+            return curr.next
+        prev.next = curr.next
+        curr = None
+        return head
 ```
 
-- The first loop finds the half point of the given linked list, by placing `slow` there.
-- After finding `slow`, the linked list is cut into half.
-- The second loop reverses the second half of the list.
-- The third loop merges the two lists by connecting the nodes in turn.
+- The first loop calculates the length of the linked list.
+- The second loop finds the `target` node that needs to be removed.
+- After finding it, it sets `prev.next` as `curr.next`, to bypass `curr`.
+- If there's no `prev`, it returns `curr.next` directly.
+
 ---
 
 ### Thoughts
 
 - The time complexity is **`O(n)`** where `n` is the number of nodes.
 - The space complexity is **`O(1)`** as no additional space is used.
+- **Storing nodes that need to be accessed** is a fundamental step in linked list manipulation.
 - **Visualizing a linked list** can help manipulate it efficiently with less confusion.
 - **Managing the first and the last pointers** of a linked list is crucial to avoid an infinite loop.
-- The condition of a loop also needs to be set properly to avoid refering to a `None` object.
+- The condition of a loop also needs to be set properly to avoid referring to a `None` object.
+- Need to handle edge cases thoroughly in linked list problems.
