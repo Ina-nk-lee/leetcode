@@ -50,6 +50,10 @@ LeetCode/
 - [Reverse Linked List](https://neetcode.io/problems/reverse-a-linked-list/question) [Reviewed on Feb 21, 2026]
 
 - [Sum of 3](https://neetcode.io/problems/three-integer-sum/solution)
+
+- [kth Smallest Number in BST](https://neetcode.io/problems/kth-smallest-integer-in-bst/question?list=neetcode150)
+
+- [Construct BST with Preorder / Inorder Traversal](https://neetcode.io/problems/binary-tree-from-preorder-and-inorder-traversal/question?list=neetcode150)
 ---
 
 ## About
