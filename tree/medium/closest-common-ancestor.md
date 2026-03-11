@@ -1,4 +1,4 @@
-## Closest Common Ancester
+## Closest Common Ancestor
 
 - Difficulty: medium
 - [Link](https://neetcode.io/problems/lowest-common-ancestor-in-binary-search-tree/history)
